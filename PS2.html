@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang = "fr">
+    <head>
+        <title>Panier d'achats</title>
+        <meta charset = "uft-8">
+        <meta name = "viewport" content = "width = device-width, initial-scale = 1.0">
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <link rel = "icon" href="media/icon.png">
+        <link rel = "stylesheet" href = "styles.css">
+    </head>
+    <body>
+        <!--L'en-tête-->
+        <header class = "d-flex flex-column flex-lg-row">
+            <div id ="brand1" class ="d-flex col-12 col-lg-2">
+                <img src = "media/g.png" alt = "logo">
+                <h1 id = "brand">GameKit</h1>
+            </div>
+            <nav id ="navigation" class = "col-12 col-lg-6 d-flex flex-column justify-content-lg-around align-items-lg-center flex-lg-row">
+                <a href ="main.html">3DS</a>
+                <a class = "active" href = "PS2.html">PS2</a>
+                <a href = "Xbox.html">Xbox</a>
+            </nav>
+            <div id="search1" class ="col-12 col-lg-4">
+                <div id = "search">
+                    <img src="media/search.png" alt = "recherche" class = "px-2">
+                    <input type ="search" name = "recherche" placeholder = "Rechercher">
+                </div>
+            </div>
+        </header>
+
+        <!--le contenu principal-->
+        <main>
+            <!--Produits-->
+            <div class = "d-flex flex-column align-items-center" style = "padding:auto; margin:auto;">
+
+                <!--Premier jeu-->
+                <section class = "produit flex-column flex-lg-row" id = "produit1">
+                    <div class="d-flex">
+                        <input type = "checkbox" id = "check1" style="margin-right:10px; margin-left:5px;">
+                        <img class = "product" src = "https://upload.wikimedia.org/wikipedia/en/9/94/Dragon_Quest_VIII_Journey_of_the_Cursed_King.jpeg" alt = "dq8" width="185" height="130" style="border:1px solid gold; margin: 18px;">
+                    </div>
+                    <div class = "d-flex flex-column align-items-end justify-content-between">
+                        <div class = "d-flex align-items-center justify-content-end" style = "margin-left: 10px;">
+                            <h2 style = "font-weight:medium; font-size:16px; width:305px;">Dragon Quest VIII: L'odyssée du Roi Maudit</h2>
+                            <input type ="image" src ="media/heart.png" alt = "favoris" style = "margin-left:10px; margin-right:7px;" id = "favor1">
+                        </div>
+                        <div class = "d-flex flex-column" style = "margin-top:18px;">
+                            <div class = "unit">
+                                <input type ="image" src ="media/minus.png" alt = "moins" class = "nombre" id = "minus1"> 
+                                <p style = "color:gold; font-size:18px; display:inline; margin:4px;" id = "prix1">1</p>
+                                <input type ="image" src ="media/plus.png" alt = "plus" class = "nombre" id = "plus1">
+                            </div>
+                            <div class = "d-flex" style = "margin-top: 8px;">
+                                <p id = "prit1">33.99</p>
+                                <p style = "margin-left: 3px;">$US</p>
+                            </div>
+                        </div>
+                    </div>
+                    <input type = "image" src="media/close.png" alt="fermerture" style="margin-right:5px; margin-left:20px;" id = "close1">
+                </section>
+
+                <!--Deuxième jeu-->
+                <section class = "produit flex-column flex-lg-row" id = "produit2">
+                    <div class="d-flex">
+                        <input type = "checkbox" id = "check2" style="margin-right:10px; margin-left:5px;">
+                        <img class = "product" src = "https://romsfun.com/wp-content/uploads/2019/08/Final-Fantasy-X.png" alt = "FFX" width="185" height="130" style="border:1px solid gold; margin: 18px;">
+                    </div>
+                    <div class = "d-flex flex-column align-items-end justify-content-between">
+                        <div class = "d-flex align-items-center justify-content-end" style = "margin-left: 10px;">
+                            <h2 style = "font-weight:medium; font-size:16px; width:305px;">Final Fantasy X</h2>
+                            <input type ="image" src ="media/heart.png" alt = "favoris" style = "margin-left:10px; margin-right:7px;" id = "favor2">
+                        </div>
+                        <div class = "d-flex flex-column" style = "margin-top:18px;">
+                            <div class = "unit">
+                                <input type ="image" src ="media/minus.png" alt = "moins" class = "nombre" id = "minus2">
+                                <p style = "color:gold; font-size:18px; display:inline; margin:4px;" id = "prix2">1</p>
+                                <input type ="image" src ="media/plus.png" alt = "plus" class = "nombre" id = "plus2">
+                            </div>
+                            <div class = "d-flex" style = "margin-top: 8px;">
+                                <p id = "prit2">43.41</p>
+                                <p style = "margin-left: 3px;">$US</p>
+                            </div>
+                        </div>
+                    </div>
+                    <input type = "image" src="media/close.png" alt="fermerture" style="margin-right:5px; margin-left:20px;" id = "close2">
+                </section>
+
+                <!--Troisième jeu-->
+                <section class = "produit flex-column flex-lg-row" id = "produit3">
+                    <div class="d-flex">
+                        <input type = "checkbox" id = "check3" style="margin-right:10px; margin-left:5px;">
+                        <img class = "product" src = "https://romsfun.com/wp-content/uploads/2019/09/%C5%8Ckami.jpg" alt = "Okami" width="185" height="130" style="border:1px solid gold; margin: 18px;">
+                    </div>
+                    <div class = "d-flex flex-column align-items-end justify-content-between">
+                        <div class = "d-flex align-items-center justify-content-end" style = "margin-left: 10px;">
+                            <h2 style = "font-weight:medium; font-size:16px; width:305px;">Okami</h2>
+                            <input type ="image" src ="media/heart.png" alt = "favoris" style = "margin-left:10px; margin-right:7px;" id = "favor3">
+                        </div>
+                        <div class = "d-flex flex-column" style = "margin-top:18px;">
+                            <div class = "unit">
+                                <input type ="image" src ="media/minus.png" alt = "moins" class = "nombre" id = "minus3">
+                                <p style = "color:gold; font-size:18px; display:inline; margin:4px;" id = "prix3">1</p>
+                                <input type ="image" src ="media/plus.png" alt = "plus" class = "nombre" id = "plus3">
+                            </div>
+                            <div class = "d-flex" style = "margin-top: 8px;">
+                                <p id = "prit3">31.45</p>
+                                <p style = "margin-left: 3px;">$US</p>
+                            </div>
+                        </div>
+                    </div>
+                    <input type = "image" src="media/close.png" alt="fermerture" style="margin-right:5px; margin-left:20px;" id = "close3">
+                </section>
+
+            </div>
+
+            <!--Affichage du prix-->
+            <div class = "d-flex">
+                <div class = "total d-flex flex-column">
+                    <h3 style = "text-align: center; font-size:20px; height: 20%;">FACTURE</h3>
+                    <div class = "price" style = "height: 20%; display:flex; justify-content: space-between;">
+                        <p style = "text-align:left;">SANS TAXES</p>
+                        <div class = "d-flex" style = "text-align:right;">
+                            <p id = "stax" style = "text-align:right;"></p>
+                            <p style = "margin-left: 5px;" style = "text-align:right;">$US</p>
+                        </div>
+                    </div>
+                    <div class = "price" style = "height: 20%; display:grid; grid-template-columns: 50% 50%;">
+                        <p style = "text-align:left;">TAXES</p>
+                        <p style = "text-align:right;">10%</p>
+                    </div>
+                    <div class = "price" style = "height: 20%; display:flex; justify-content: space-between;">
+                        <p style = "text-align:left;">TOTAL A PAYER</p>
+                        <div class = "d-flex" style = "text-align:right;">
+                            <p id = "atax" style = "text-align:right;"></p>
+                            <p style = "margin-left: 5px;" style = "text-align:right;">$US</p>
+                        </div>
+                    </div>
+                    <button type = "submit" id ="paiement">PAYER</button>
+                </div>
+            </div>
+        </main>
+
+        <!--Le pied de page-->
+        <footer> 
+            <div class = "text-center col-12">
+                <p>&copy; 2024 Page d'achat <strong>Josué Mongan</strong>. Tous droits réservés.</p>
+                <p>160 Grand-Yoff, Dakar, Sénégal</p>
+            </div>
+            <nav class = "d-flex justify-content-around py-2 col-12">
+                <button class = "social"><a href = "mailto:josuesmjr.mongan@gmail.com"><img src = "media/mail.png" alt ="Bouton mail"></a></button>
+                <button class = "social"><a href = "https://www.facebook.com/" target = "_blank"><img src = "media/facebook.png" alt = "Bouton facebook"></a></button>
+                <button class = "social"><a href = "https://www.instagram.com/" target = "_blank"><img src = "media/insta.png" alt = "Bouton instagram"></a></button>
+                <button class = "social"><a href = "https://twitter.com/i/flow/login" target = "_blank"><img src = "media/twitter.png" alt = "Bouton twitter"></a></button>
+                <button class = "social"><a href = "https://fr.linkedin.com/" target = "_blank"><img src = "media/linkedin.png" alt = "Bouton linkedin"></a></button>
+            </nav>
+        </footer>
+        <script>
+            var elem1 = document.getElementById('favor1');
+            var elem2 = document.getElementById('favor2');
+            var elem3 = document.getElementById('favor3');
+
+            elem1.addEventListener("click", function(){favor(elem1);});
+            elem2.addEventListener("click", function(){favor(elem2);});
+            elem3.addEventListener("click", function(){favor(elem3);});
+
+
+            function favor(elem, select)
+            {
+
+                
+                var value = elem.getAttribute('src');
+
+                if(value == "media/heart.png")
+                {
+                    elem.setAttribute('src', "media/liked.png");
+                }
+
+                else if (value == "media/liked.png")
+                {
+                    elem.setAttribute('src', "media/heart.png");
+                }
+
+            }
+        </script>
+        <script>
+            const num1 = 33.99;
+            const num2 = 43.41;
+            const num3 = 31.45;
+        </script>
+        <script src = "scripts.js"></script>
+        <script>
+            stax.innerHTML = String(((p1 + p2 + p3)*(1.0)).toFixed(2));
+
+            atax.innerHTML = String(((Number(stax.innerHTML))*(1.1)).toFixed(2));
+        </script>
+    </body>
+</html>

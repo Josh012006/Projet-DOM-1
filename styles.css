@@ -1,0 +1,226 @@
+body
+{
+    background-color: rgb(40, 40, 40);
+    color:gold;
+    display:grid;
+    grid-template-columns: 100%;
+    grid-template-rows:auto auto auto;
+}
+
+header
+{
+    background-color: black;
+    color:gold;
+    position:relative;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+
+footer
+{
+    background-color: black;
+    color:gold;
+    grid-row-start: 3;
+    grid-row-end: 4;
+    padding:5px;
+}
+
+main
+{
+    grid-row-start: 2;
+    grid-row-end: 3;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    padding:10px;
+    min-height: 760px;
+}
+
+/*Le logo et le nom de la société*/
+#brand1
+{
+    padding:auto;
+    justify-content: center;
+    align-items:center;
+}
+
+#brand
+{
+    margin:4px;
+    font-size:26px;
+    font-weight: bold;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+#brand1 img
+{
+    margin:4px;
+    width:28px;
+    height:28px;
+}
+
+/*Le formulaire de recherche*/
+#search
+{
+    width:auto;
+    margin:7px;
+}
+
+#search1
+{
+    order:3;
+}
+
+/*Les liens de la barre de navigation*/
+.active
+{
+    font-size:17px;
+    font-weight: bold;
+}
+
+#navigation a:link,#navigation a:visited
+{
+    color:gold;
+    text-decoration:none;
+}
+
+#brand1, #navigation, #search1
+{
+    border: 1px solid gold;
+}
+
+#navigation a:hover
+{
+    color:gold;
+    font-weight:bold;
+    font-size:18px;
+}
+
+/*Les éléments du footer*/
+.social
+{
+    background-color: black;
+}
+
+/*Les éléments du main*/
+.unit
+{
+    border:1px solid gold;
+    height:24px;
+    width:auto;
+    display:inline-flex;
+    justify-content: space-evenly;
+    align-items:center;
+    padding:auto;
+}
+
+.nombre
+{
+    width:10px;
+    height:10px;
+    margin:4px;
+}
+
+/*Les produits */
+.produit
+{
+    display:flex;
+    align-items:center;
+    background-color: rgb(30, 30, 30);
+
+    border-bottom:1px solid gold;
+    width:fit-content;
+    padding:10px;
+    margin: 20px;
+}
+
+/*Le total*/
+.total
+{
+    background-color: rgb(30, 30, 30);
+    border:1px solid gold;
+    width:90%;
+    margin-left:auto;
+    margin-right:auto;
+    margin-bottom:10px;
+    height: auto;
+    padding: 10px;
+}
+
+.total button
+{
+    background-color: black;
+    color:gold;
+    width:100%;
+}
+
+
+.favorite
+{
+    margin: auto;
+    padding:auto;
+    text-align:center;
+    display:grid;
+    grid-template-columns: 100%;
+    grid-template-rows: repeat(11, 1fr);
+
+    justify-content:center;
+}
+
+.favorite h2
+{
+    font-weight:medium; 
+    font-size:16px;  
+    text-align:center;
+}
+
+
+
+
+
+
+
+@media screen and (min-width: 992px)
+{
+    #brand1
+    {
+        order:2;
+    }
+
+    header
+    {
+        height: 57px;
+    }
+
+    #search
+    {
+        margin:auto;
+        position:absolute;
+        right:40px;
+    }
+
+    #search1
+    {
+        padding:10px;
+    }
+
+    .total
+    {
+        margin: auto;
+    }
+
+    .produit
+    {
+        height: 150px;
+    }
+
+    main
+    {
+        display: grid;
+        grid-template-rows: 100%;
+        grid-template-columns: 70% 30%;
+    }
+
+}
