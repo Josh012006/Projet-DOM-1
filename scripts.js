@@ -1,67 +1,94 @@
+var atax = document.getElementById('atax');
+var stax = document.getElementById('stax');
+
+var p = [0.00, 0.00, 0.00];
 
 
 //La suppression d'éléments du panier
-var prod1 = document.getElementById('produit1');
-var prod2 = document.getElementById('produit2');
-var prod3 = document.getElementById('produit3');
+var prod = Array.from(document.getElementsByClassName('prod'));
 
-var close1 = document.getElementById('close1');
-var close2 = document.getElementById('close2');
-var close3 = document.getElementById('close3');
+function closing(a)
+{
+    p[a] = 0.00;
+    prod[a].setAttribute("style", "display:none;");
 
-close1.addEventListener("click", function(){
-    p1 = 0.00;
-    prod1.setAttribute("style", "display:none;");
-    stax.innerHTML = String(((p1 + p2 + p3)*(1.0)).toFixed(2));
-    
+    stax.innerHTML = String(((p[0] + p[1] + p[2])*(1.0)).toFixed(2));
     atax.innerHTML = String(((Number(stax.innerHTML))*(1.1)).toFixed(2));
-});
-close2.addEventListener("click", function(){
-    p2 = 0.00;
-    prod2.setAttribute("style", "display:none;");
-    stax.innerHTML = String(((p1 + p2 + p3)*(1.0)).toFixed(2));
-    
-    atax.innerHTML = String(((Number(stax.innerHTML))*(1.1)).toFixed(2));
-});
-close3.addEventListener("click", function(){
-    p3 = 0.00;
-    prod3.setAttribute("style", "display:none;");
-    stax.innerHTML = String(((p1 + p2 + p3)*(1.0)).toFixed(2));
-    
-    atax.innerHTML = String(((Number(stax.innerHTML))*(1.1)).toFixed(2));
-});
+}
 
+var clos = Array.from(document.getElementsByClassName('close'));
+
+for(let i in clos)
+{
+    clos[i].addEventListener("click", function(){closing(parseInt(i))});
+}
+
+
+
+//Pour les favoris
+var elem = Array.from(document.getElementsByClassName('favor'));
+
+for(let i in elem)
+{
+    elem[i].addEventListener("click", function(){favor(i);});
+}
+
+
+function favor(a)
+{
+    var value = elem[a].getAttribute('src');
+
+    if(value == "media/heart.png")
+    {
+        elem[a].setAttribute('src', "media/liked.png");
+    }
+
+    else if (value == "media/liked.png")
+    {
+        elem[a].setAttribute('src', "media/heart.png");
+    }
+}
+
+
+
+//Pour les checkbox
+
+function checking(a)
+{
+    if(check[a].checked === false)
+    {
+        p[a] = 0.00;
+        stax.innerHTML = String(((p[0] + p[1] + p[2])*(1.0)).toFixed(2));
+        atax.innerHTML = String(((Number(stax.innerHTML))*(1.1)).toFixed(2));
+    }
+
+    else if(check[a].checked === true)
+    {
+        p[a] = Number(prit[a].innerHTML);
+        stax.innerHTML = String(((p[0] + p[1] + p[2])*(1.0)).toFixed(2));
+        atax.innerHTML = String(((Number(stax.innerHTML))*(1.1)).toFixed(2));
+    }
+}
+
+var check = Array.from(document.getElementsByClassName("check"));
+
+for(let i in check)
+{
+    check[i].addEventListener("click", function(){checking(i)})
+}
 
 
 
 //Le nombre de produits
-var minus1 = document.getElementById('minus1');
-var minus2 = document.getElementById('minus2');
-var minus3 = document.getElementById('minus3');
+var moins = Array.from(document.getElementsByClassName('minus'));
+var pluss = Array.from(document.getElementsByClassName('plus'));
+var prix = Array.from(document.getElementsByClassName('prix'));
+var prit = Array.from(document.getElementsByClassName('prit'));
 
-var plus1 = document.getElementById('plus1');
-var plus2 = document.getElementById('plus2');
-var plus3 = document.getElementById('plus3');
 
-var prix1 = document.getElementById('prix1');
-var prix2 = document.getElementById('prix2');
-var prix3 = document.getElementById('prix3');
-
-var prit1 = document.getElementById('prit1');
-var prit2 = document.getElementById('prit2');
-var prit3 = document.getElementById('prit3');
-
-minus1.addEventListener("click", function(){minus(prix1, prit1, num1);});
-minus2.addEventListener("click", function(){minus(prix2, prit2, num2);});
-minus3.addEventListener("click", function(){minus(prix3, prit3, num3);});
-
-plus1.addEventListener("click", function(){plus(prix1, prit1, num1);});
-plus2.addEventListener("click", function(){plus(prix2, prit2, num2);});
-plus3.addEventListener("click", function(){plus(prix3, prit3, num3);});
-
-function minus(prix, prit, num)
+function minus(a)
 {
-    var number1 = Number(prix.innerHTML);
+    let number1 = Number(prix[a].innerHTML);
 
     if(number1 == 1)
     {
@@ -72,26 +99,23 @@ function minus(prix, prit, num)
         number1--;
     }
 
-    prix.innerHTML = String(number1);
-    prit.innerHTML = String((number1*num).toFixed(2));
+    prix[a].innerHTML = String(number1);
+    prit[a].innerHTML = String((number1*num[a]).toFixed(2));
 
-    if(check1.checked === true)
-        p1 = Number(prit1.innerHTML);
-    if(check2.checked === true)
-        p2 = Number(prit2.innerHTML);
-    if(check3.checked === true)
-        p3 = Number(prit3.innerHTML);
+    for(let i in check)
+    {
+        if(check[i].checked === true)
+            p[i] = Number(prit[i].innerHTML);
+    }
 
-    stax.innerHTML = String(((p1 + p2 + p3)*(1.0)).toFixed(2));
-
+    stax.innerHTML = String(((p[0] + p[1] + p[2])*(1.0)).toFixed(2));
     atax.innerHTML = String(((Number(stax.innerHTML))*(1.1)).toFixed(2));
-
 }
 
 
-function plus(prix, prit, num)
+function plus(a)
 {
-    var number2 = Number(prix.innerHTML);
+    let number2 = Number(prix[a].innerHTML);
 
     if(number2 == 5)
     {
@@ -102,109 +126,42 @@ function plus(prix, prit, num)
         number2++;
     }
 
-    prix.innerHTML = String(number2);
-    prit.innerHTML = String((number2*num).toFixed(2));
+    prix[a].innerHTML = String(number2);
+    prit[a].innerHTML = String((number2*num[a]).toFixed(2));
 
-    if(check1.checked === true)
-        p1 = Number(prit1.innerHTML);
-    if(check2.checked === true)
-        p2 = Number(prit2.innerHTML);
-    if(check3.checked === true)
-        p3 = Number(prit3.innerHTML);
+    for(let i in check)
+    {
+        if(check[i].checked === true)
+            p[i] = Number(prit[i].innerHTML);
+    }
 
-    stax.innerHTML = String(((p1 + p2 + p3)*(1.0)).toFixed(2));
-
+    stax.innerHTML = String(((p[0] + p[1] + p[2])*(1.0)).toFixed(2));
     atax.innerHTML = String(((Number(stax.innerHTML))*(1.1)).toFixed(2));
 }
 
 
-//Pour les checkbox
-var p1 = 0.00;
-var p2 = 0.00;
-var p3 = 0.00;
-
-var atax = document.getElementById('atax');
-var stax = document.getElementById('stax');
-
-var check1 = document.getElementById('check1');
-var check2 = document.getElementById('check2');
-var check3 = document.getElementById('check3');
-
-check1.addEventListener('click', function(){
-    if(check1.checked === false)
-    {
-        p1 = 0.00;
-    
-        stax.innerHTML = String(((p1 + p2 + p3)*(1.0)).toFixed(2));
-    
-        atax.innerHTML = String(((Number(stax.innerHTML))*(1.1)).toFixed(2));
-    }
-
-    else if(check1.checked === true)
-    {
-        p1 = Number(prit1.innerHTML);
-
-        stax.innerHTML = String(((p1 + p2 + p3)*(1.0)).toFixed(2));
-    
-        atax.innerHTML = String(((Number(stax.innerHTML))*(1.1)).toFixed(2));
-    }
-
-});
-
-check2.addEventListener('click', function(){
-    if(check2.checked === false)
-    {
-        p2 = 0.00;
-    
-        stax.innerHTML = String(((p1 + p2 + p3)*(1.0)).toFixed(2));
-    
-        atax.innerHTML = String(((Number(stax.innerHTML))*(1.1)).toFixed(2));
-    }
-
-    else if(check2.checked === true)
-    {
-        p2 = Number(prit2.innerHTML);
-
-        stax.innerHTML = String(((p1 + p2 + p3)*(1.0)).toFixed(2));
-    
-        atax.innerHTML = String(((Number(stax.innerHTML))*(1.1)).toFixed(2));
-    }
-});
-
-check3.addEventListener('click', function(){
-    if(check3.checked === false)
-    {
-        p3 = 0.00;
-    
-        stax.innerHTML = String(((p1 + p2 + p3)*(1.0)).toFixed(2));
-    
-        atax.innerHTML = String(((Number(stax.innerHTML))*(1.1)).toFixed(2));
-    }
-
-    else if(check3.checked === true)
-    {
-        p3 = Number(prit3.innerHTML);
-
-        stax.innerHTML = String(((p1 + p2 + p3)*(1.0)).toFixed(2));
-    
-        atax.innerHTML = String(((Number(stax.innerHTML))*(1.1)).toFixed(2));
-    }
-});
+for(let i in moins)
+{
+    moins[i].addEventListener("click", function(){minus(i)});
+}
+for(let i in pluss)
+{
+    pluss[i].addEventListener("click", function(){plus(i)});
+}
 
 
 
 //Pour le paiement
 var paid = document.getElementById('paiement');
 
-paid.addEventListener('click', function(){verification();});
+paid.addEventListener('click', function(){verification()});
 
 function verification()
 {
-    var conf = confirm("Voulez-vous effectuer le paiement?")
-
-    if(conf === true)
+    if(confirm("Voulez-vous effectuer le paiement?"))
     {
         alert("Paiement effectué! Merci de votre confiance.");
     }
 }
+
 
